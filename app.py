@@ -77,12 +77,86 @@ def render_ats_gauge(score):
 
 # === Skill Kategorileri ===
 skill_categories = {
-    "Programlama Dilleri": ["python", "java", "c", "c++", "c#", "go", "r", "typescript"],
-    "Frontend": ["html", "css", "javascript", "react", "vue", "angular", "tailwind", "bootstrap"],
-    "Veri Tabanları": ["mysql", "postgresql", "sqlite", "mongodb", "firebase"],
-    "Framework / Kütüphaneler": ["spring", "spring boot", "django", "flask", "express", "laravel", "dotnet", ".net", "next.js", "nestjs", "fastapi", "symfony"],
-    "Araçlar & Platformlar": ["git", "github", "docker", "ci/cd", "linux", "azure", "aws", "gcp", "jira", "postman"],
-    "Veri Bilimi / AI": ["pandas", "numpy", "tensorflow", "keras", "scikit-learn", "matplotlib", "huggingface"]
+    "Programlama Dilleri": [
+        "python", "java", "c", "c++", "c#", "go", "r", "typescript", 
+        "javascript", "php", "swift", "kotlin", "ruby", "rust", 
+        "scala", "dart", "perl", "haskell", "elixir", "clojure",
+        "objective-c", "bash", "powershell", "lua", "groovy"
+    ],
+    "Frontend Geliştirme": [
+        "html", "css", "sass", "less", "javascript", "typescript",
+        "react", "vue", "angular", "svelte", "ember", "jquery",
+        "tailwind", "bootstrap", "material ui", "chakra ui", 
+        "styled components", "graphql", "redux", "mobx", "webpack",
+        "babel", "gulp", "grunt", "next.js", "nuxt.js", "three.js"
+    ],
+    "Backend Geliştirme": [
+        "node.js", "express", "nestjs", "django", "flask", "fastapi",
+        "spring", "spring boot", "laravel", "symfony", "ruby on rails",
+        "asp.net", ".net core", "phoenix", "gin", "echo", "koa",
+        "hapi", "micronaut", "quarkus", "serverless", "deno"
+    ],
+    "Veritabanları": [
+        "mysql", "postgresql", "sqlite", "mongodb", "firebase",
+        "oracle", "microsoft sql server", "mariadb", "redis",
+        "cassandra", "elasticsearch", "dynamodb", "cosmosdb",
+        "neo4j", "arangodb", "couchdb", "realm", "hbase", "influxdb"
+    ],
+    "DevOps & Bulut": [
+        "git", "github", "gitlab", "bitbucket", "docker", "kubernetes",
+        "ci/cd", "jenkins", "github actions", "gitlab ci", "circleci",
+        "ansible", "terraform", "puppet", "chef", "linux", "bash",
+        "aws", "azure", "gcp", "digitalocean", "heroku", "firebase",
+        "nginx", "apache", "istio", "prometheus", "grafana", "vault"
+    ],
+    "Veri Bilimi & AI/ML": [
+        "pandas", "numpy", "scipy", "tensorflow", "pytorch", "keras",
+        "scikit-learn", "opencv", "matplotlib", "seaborn", "plotly",
+        "huggingface", "spacy", "nltk", "apache spark", "hadoop",
+        "apache flink", "dask", "ray", "mlflow", "kubeflow", "jupyter",
+        "rstudio", "tableau", "power bi", "apache kafka", "airflow"
+    ],
+    "Mobil Geliştirme": [
+        "react native", "flutter", "swift", "kotlin", "objective-c",
+        "android sdk", "ios development", "xamarin", "ionic", 
+        "cordova", "capacitor", "unity", "unreal engine", "arkit",
+        "core ml", "firebase for mobile"
+    ],
+    "Oyun Geliştirme": [
+        "unity", "unreal engine", "cocos2d", "godot", "phaser",
+        "opengl", "directx", "vulkan", "webgl", "three.js",
+        "blender", "maya", "3ds max", "substance designer"
+    ],
+    "Siber Güvenlik": [
+        "ethical hacking", "penetration testing", "metasploit",
+        "burp suite", "wireshark", "nmap", "owasp", "kali linux",
+        "siem", "splunk", "reverse engineering", "cryptography",
+        "blockchain security", "zero trust", "pki"
+    ],
+    "Blockchain": [
+        "solidity", "ethereum", "hyperledger", "smart contracts",
+        "web3.js", "ethers.js", "truffle", "hardhat", "ganache",
+        "cosmos sdk", "substrate", "polkadot", "defi", "nft",
+        "dapp development", "ipfs", "chainlink"
+    ],
+    "Diğer Teknolojiler": [
+        "arduino", "raspberry pi", "iot", "computer vision",
+        "natural language processing", "robotics", "embedded systems",
+        "fpga", "verilog", "vhdl", "qt", "gtk", "electron",
+        "progressive web apps", "webassembly", "websockets"
+    ],
+    "Tasarım & UX/UI": [
+        "figma", "adobe xd", "sketch", "invision", "photoshop",
+        "illustrator", "after effects", "premiere pro", "ux research",
+        "ui design", "design systems", "prototyping", "user testing",
+        "accessibility", "responsive design", "motion design"
+    ],
+    "Proje Yönetimi": [
+        "agile", "scrum", "kanban", "jira", "trello", "asana",
+        "clickup", "monday.com", "confluence", "waterfall",
+        "lean", "six sigma", "pmp", "prince2", "risk management",
+        "product management", "business analysis"
+    ]
 }
 
 st.markdown("### CV'nizi PDF formatında yükleyin")
