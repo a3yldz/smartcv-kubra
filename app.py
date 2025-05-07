@@ -27,9 +27,7 @@ from job_matcher import job_skill_map
 # Ortam değişkenlerini yükle
 load_dotenv(dotenv_path=".env", override=True)
 
-if not os.getenv("GEMINI_API_KEY"):
-    st.error("GEMINI_API_KEY ortam değişkeni bulunamadı. Lütfen .env dosyasını kontrol edin.")
-    st.stop()
+
 
 # === UI Header ===
 st.markdown(inject_global_styles(), unsafe_allow_html=True)
