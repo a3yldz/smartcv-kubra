@@ -20,8 +20,28 @@ job_skill_map = {
         "linux", "bash", "shell scripting", "docker", "kubernetes", "helm", "terraform", "ansible",
         "aws", "azure", "gcp", "ci/cd", "jenkins", "github actions", "gitlab", "monitoring", "prometheus", "grafana",
         "nginx", "load balancing", "infrastructure as code"
+    ],
+    "software engineer": [
+        "python", "java", "c++", "c#", "software architecture", "design patterns", "oop", "data structures",
+        "algorithms", "git", "unit testing", "integration testing", "agile", "scrum", "ci/cd", "linux", "rest api"
+    ],
+    "project manager": [
+        "project management", "agile", "scrum", "kanban", "jira", "confluence", "communication", "stakeholder management",
+        "risk management", "time management", "team leadership", "budgeting", "gantt charts", "ms project", "trello",
+        "product management", "software development lifecycle", "requirements gathering"
+    ],
+    "product manager": [
+        "product management", "roadmap planning", "market research", "agile", "scrum", "ux/ui", "data analysis",
+        "a/b testing", "kpi tracking", "communication", "stakeholder management", "business strategy",
+        "product lifecycle", "user stories", "jira", "confluence", "figma"
+    ],
+    "technical lead": [
+        "software architecture", "design patterns", "code review", "mentoring", "technical leadership", "agile",
+        "scrum", "devops", "ci/cd", "version control", "system design", "backend/frontend experience", "cloud platforms",
+        "communication", "team coordination", "project planning", "conflict resolution", "performance optimization"
     ]
 }
+
 
 
 def match_score(user_skills, target_role):
