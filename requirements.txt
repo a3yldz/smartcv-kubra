@@ -3,3 +3,8 @@ PyMuPDF
 python-dotenv
 google-generativeai
 plotly
+pandas
+numpy
+scikit-learn
+matplotlib
+xhtml2pdf
