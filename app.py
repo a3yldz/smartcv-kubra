@@ -20,14 +20,14 @@ from skill_extractor import extract_skills
 from job_matcher import match_score
 from role_recommender import recommend_roles
 from llm import get_ai_advice
-from generate_pdf import create_cv_report
 from ats_score import calculate_ats_score
 from job_matcher import job_skill_map
 
+# PDF oluşturma tamamen kaldırıldı
+# from generate_pdf import create_cv_report  ← SİLİNDİ
+
 # Ortam değişkenlerini yükle
 load_dotenv(dotenv_path=".env", override=True)
-
-
 
 # === UI Header ===
 st.markdown(inject_global_styles(), unsafe_allow_html=True)
@@ -41,11 +41,9 @@ with st.expander("ATS Nedir?"):
 
     SmartCV, CV'nizi ATS algoritmalarına benzer şekilde değerlendirerek size bir **uyum skoru** verir. 
     
-    - **80 ve üzeri**: Yüksek uyum – CV'niz güçlü görünüyor.
-    - **60 - 80**: Orta düzey uyum – iyileştirme yapılabilir.
-    - **60 altı**: Düşük uyum – mutlaka güncelleme önerilir.
-
-    Bu sayede CV'nizin dijital eleme sistemlerinde daha yüksek başarı şansı elde etmesini sağlayabilirsiniz.
+    - **80 ve üzeri**: Yüksek uyum
+    - **60 - 80**: Orta düzey uyum
+    - **60 altı**: Düşük uyum
     """)
 
 # === PDF Gösterimi ===
@@ -213,16 +211,16 @@ if uploaded_file:
         else:
             if ats_score:
                 render_ats_gauge(ats_score)
-                st.markdown("**ATS Yorumu:**")
+                st.markmarkdown("**ATS Yorumu:**")
                 for item in ats_feedback:
                     st.info(item)
 
                 if ats_score < 60:
-                    st.warning("ATS skorunuz düşük görünüyor. CV'nizi tekrar gözden geçirmeyi düşünebilirsiniz.")
+                    st.warning("ATS skorunuz düşük görünüyor.")
                 elif ats_score < 80:
-                    st.info("ATS skorunuz orta seviyede. Küçük dokunuşlarla daha iyi hale gelebilir.")
+                    st.info("ATS skorunuz orta seviyede.")
                 else:
-                    st.success("ATS skorunuz yüksek! Büyük şirketlerin radarına girme şansınız artabilir.")
+                    st.success("ATS skorunuz yüksek!")
 
     st.markdown("---")
     st.subheader("Tespit Edilen Yetenekler")
@@ -297,18 +295,13 @@ if uploaded_file:
             ai_response = get_ai_advice(tech_skills, soft_skills, api_key=user_api_key)
             st.info(ai_response)
         else:
-            st.info("Yapay zeka yorumunu görmek için lütfen Gemini API Key’inizi girin. Gemini API key'iniz yok mu? [Nasıl alınır öğrenmek için tıklayın](https://github.com/KULLANICI/REPO_ADI/blob/main/docs/GEMINI_API_KEY_KILAVUZU.md)")
+            st.info("Yapay zeka yorumunu görmek için API key girin.")
+
     st.markdown("---")
     st.subheader("PDF Raporu")
-    if st.button("PDF Olarak İndir"):
-        pdf_path = create_cv_report(tech_skills, soft_skills, score or 0, matched, missing, recommended_roles, suggestions)
-        if pdf_path:
-            with open(pdf_path, "rb") as f:
-                base64_pdf = base64.b64encode(f.read()).decode("utf-8")
-                href = f'<a href="data:application/octet-stream;base64,{base64_pdf}" download="smartcv_raporu.pdf">Raporu İndir</a>'
-                st.markdown(href, unsafe_allow_html=True)
-        else:
-            st.error("PDF oluşturulurken bir hata oluştu.")
+
+    # === PDF Oluşturma Butonu KALDIRILDI ===
+    st.info("PDF rapor oluşturma özelliği geçici olarak devre dışı bırakıldı.")
 else:
     st.info("Lütfen analiz başlatmak için PDF formatında CV yükleyin.")
 
